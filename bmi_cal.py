@@ -1,6 +1,4 @@
-import json
 count = 0
-
 
 def cal_bmi(gender,heightcm,weightkg):
     global count
@@ -27,14 +25,3 @@ def cal_bmi(gender,heightcm,weightkg):
         bmi_category = 'Very severely obese'
         health_risk = 'Very high risk'
     return [bmi,bmi_category,health_risk]
-
-
-f = open("input_json.txt", "r")
-input_data = f.read() 
-json_data = json.loads(input_data)
-bmi_data=[]
-for data in json_data:
-    bmi_data.append(cal_bmi(data['Gender'],data['HeightCm'],data['WeightKg']))
-    #print(type(bmi_data))
-print(bmi_data)
-print('Number of overweighted people are {}'.format(count))
